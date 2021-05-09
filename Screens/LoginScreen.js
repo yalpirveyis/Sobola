@@ -142,7 +142,7 @@ export default function LoginScreen({ navigation }) {
         <View style={{ width: 270, alignSelf: "center", marginTop: 40 }}>
           <TouchableOpacity
             // onPress={() => submit()}
-            onPress={() => navigation.navigate("MainScreen")}
+            onPress={() => navigation.navigate("Main")}
             style={{
               width: 115,
               height: 44,

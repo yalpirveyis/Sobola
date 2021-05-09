@@ -54,7 +54,14 @@ export default function MainScreen({ navigation }) {
 
   const [calls, setCalls] = useState(0);
   return (
-    <View style={{ flex: 1, alignItems: "center", marginTop: 24 }}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        paddingTop: 24,
+        backgroundColor: "white",
+      }}
+    >
       {/* Header Start */}
       {/* absolute aniamted tab bar*/}
 
@@ -97,9 +104,22 @@ export default function MainScreen({ navigation }) {
           showsHorizontalScrollIndicator={false}
         >
           <Story
-            source={require("../assets/icons/story.png")}
-            onPress={() => Alert.alert("Simple Button pressed")}
-          ></Story>
+            source={require("../assets/icons/story3.jpg")}
+            onPress={() => Alert.alert("story3")}
+          />
+
+          <Story
+            source={require("../assets/icons/story1.jpg")}
+            onPress={() => Alert.alert("story1")}
+          />
+          <Story
+            source={require("../assets/icons/story2.jpg")}
+            onPress={() => Alert.alert("story2")}
+          />
+          <Story
+            source={require("../assets/icons/story0.jpg")}
+            onPress={() => Alert.alert("story0")}
+          />
         </ScrollView>
         <View
           style={{
@@ -114,7 +134,7 @@ export default function MainScreen({ navigation }) {
             </TextMedium>
 
             <TextBold Color={Colors.Purple} FontSize={32}>
-              Taha Gür
+              Aykut Elma
             </TextBold>
             <TextBold Color={Colors.Yellow} FontSize={18}>
               06 BM 4210
@@ -455,6 +475,7 @@ export default function MainScreen({ navigation }) {
           </TextBold>
         </View>
         <TouchableOpacity
+          onPress={() => navigation.navigate("Payment")}
           style={{
             marginTop: 30,
             alignItems: "center",

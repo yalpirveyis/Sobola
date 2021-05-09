@@ -30,7 +30,7 @@ function Tabbar() {
     >
       <TouchableOpacity
         style={{ flexDirection: "row", alignItems: "center" }}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("Main")}
       >
         <Image
           source={require("../icons/menuLocation.png")}
@@ -52,7 +52,7 @@ function Tabbar() {
 
       <TouchableOpacity
         style={{ flexDirection: "row", alignItems: "center" }}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("Qr")}
       >
         <Image
           source={require("../icons/menuMessage.png")}
@@ -74,7 +74,7 @@ function Tabbar() {
 
       <TouchableOpacity
         style={{ flexDirection: "row", alignItems: "center" }}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("Settings")}
       >
         <Image
           source={require("../icons/menuSetting.png")}

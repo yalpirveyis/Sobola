@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Constants, Colors, ContentTr } from "./Constants";
 import { TextMedium } from "./Text";
 
-export default function Header() {
+export default function Header(props) {
   const navigation = useNavigation();
 
   return (
@@ -15,16 +15,40 @@ export default function Header() {
         flexDirection: "row",
         justifyContent: "space-between",
         paddingHorizontal: 15,
+        backgroundColor: "white",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.18,
+        shadowRadius: 1.0,
+
+        elevation: 1,
       }}
     >
-      <TouchableOpacity style={{ alignSelf: "center" }}>
-        <View
-          //source={require("../icons/menu.png")}
-          style={{
-            width: 24,
-            height: 16,
-          }}
-        />
+      <TouchableOpacity
+        style={{ alignSelf: "center" }}
+        onPress={() => navigation.goBack()}
+      >
+        {props.back == true ? (
+          <Image
+            source={require("../icons/back.png")}
+            style={{
+              width: 30,
+              height: 30,
+              alignSelf: "center",
+            }}
+          />
+        ) : (
+          <View
+            style={{
+              width: 30,
+              height: 30,
+              alignSelf: "center",
+            }}
+          />
+        )}
       </TouchableOpacity>
       <Image
         source={require("../icons/logoSmall.png")}

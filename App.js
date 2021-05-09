@@ -13,7 +13,16 @@ import MembershipScreen from "./Screens/MembershipScreen";
 import MainScreen from "./Screens/MainScreen";
 import Test from "./Screens/Test";
 import MapScreen from "./Screens/MapScreen";
+import QrScreen from "./Screens/QrScreen";
+import MakeCallScreen from "./Screens/MakeCallScreen";
+import PaymentScreen from "./Screens/PaymentScreen";
+import SettingsScreen from "./Screens/SettingsScreen";
 import Tabbar from "./assets/components/Tabbar";
+
+import EditInformationScreen from "./Screens/EditInformationScreen";
+import EditPasswordScreen from "./Screens/EditPasswordScreen";
+import EditCarScreen from "./Screens/EditCarScreen";
+import MyCarsScreen from "./Screens/MyCarsScreen";
 
 //var stepperCheck = false;
 var log = false;
@@ -23,6 +32,10 @@ function HomeScreen({ navigation }) {
       <Text>Home Screen</Text>
       <Text>{log == true ? "se" : "as"}</Text>
       <Button title="Go to TEst" onPress={() => navigation.navigate("Test")} />
+      <Button
+        title="MAkce Vall"
+        onPress={() => navigation.navigate("MakeCall")}
+      />
       <Button
         title="Go to stepper"
         onPress={() => navigation.navigate("Stepper")}
@@ -92,15 +105,64 @@ function App() {
           }}
         />
         <Stack.Screen
-          name="MainScreen"
+          name="Main"
           component={MainScreen}
           options={() => {
             return { headerShown: false };
           }}
         />
         <Stack.Screen
-          name="Tabbar"
-          component={Tabbar}
+          name="Qr"
+          component={QrScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="MakeCall"
+          component={MakeCallScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={PaymentScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="EditInformation"
+          component={EditInformationScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="EditPassword"
+          component={EditPasswordScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="MyCars"
+          component={MyCarsScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="EditCar"
+          component={EditCarScreen}
           options={() => {
             return { headerShown: false };
           }}

@@ -29,6 +29,7 @@ export function Story(props) {
           position: "absolute",
           alignSelf: "center",
           marginTop: 10,
+          borderRadius: 70,
         }}
       />
     </TouchableOpacity>
