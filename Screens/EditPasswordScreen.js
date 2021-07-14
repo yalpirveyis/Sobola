@@ -7,6 +7,13 @@ import {
   TextInput,
 } from "react-native";
 import Header from "../assets/components/Header";
+import { TextMedium } from "../assets/components/Text";
+import { Colors } from "../assets/components/Constants";
+
+import * as Localization from "expo-localization";
+import * as Content from "../assets/components/Content.json";
+var LanguageSlice = Localization.locale.slice(0, 2);
+
 export default function EditInformationScreen({ route }) {
   const [shouldShow, setShouldShow] = useState(false);
   const [password1, onChangeText1] = useState("");
@@ -16,8 +23,11 @@ export default function EditInformationScreen({ route }) {
       <Header back={true} />
 
       <View style={styles.modalView}>
-        <Text style={{ margin: 30, color: "#1A1A1A" }}>Şifremi Değiştir</Text>
-
+        <View style={{ margin: 30 }}>
+          <TextMedium Color={Colors.Black} FontSize={14}>
+            {Content[LanguageSlice]?.EditPassword_EditPassword}
+          </TextMedium>
+        </View>
         <TextInput
           style={{
             borderWidth: 1,
@@ -27,7 +37,7 @@ export default function EditInformationScreen({ route }) {
             height: 44,
             paddingHorizontal: 10,
           }}
-          placeholder="Eski Şifreniz"
+          placeholder={Content[LanguageSlice]?.EditPassword_EditPassword}
         ></TextInput>
         <TextInput
           style={{
@@ -40,7 +50,7 @@ export default function EditInformationScreen({ route }) {
             marginTop: 20,
           }}
           secureTextEntry={true}
-          placeholder="Yeni Şifreniz"
+          placeholder={Content[LanguageSlice]?.EditPassword_EditPassword}
           onChangeText={(text) => {
             onChangeText1(text);
             if (password1 == password2) {
@@ -64,7 +74,7 @@ export default function EditInformationScreen({ route }) {
             marginTop: 20,
           }}
           secureTextEntry={true}
-          placeholder="Yeni Şifreniz (tekrar)"
+          placeholder={Content[LanguageSlice]?.EditPassword_NewPasswordAgain}
           onChangeText={(text) => {
             onChangeText2(text);
             if (password1 == password2) {

@@ -293,7 +293,7 @@ export default function MembershipScreen({ navigation }) {
                     >
                       <View style={{ marginRight: 20 }}>
                         <TextMedium
-                          Color={Colors.Gray}
+                          Color={Colors.White}
                           FontSize={Constants.FontMedium}
                         >
                           {language == "Tr" && ContentTr.MemberButtonTitle}

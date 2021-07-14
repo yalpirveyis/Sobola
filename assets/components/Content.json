@@ -1,0 +1,81 @@
+{
+  "tr": {
+    "Save": "Kaydet",
+    "Delete": "Sil",
+    "Cancel": "İptal",
+
+    "Modal_SureToDelete": "Silmek istediğinize emin misiniz?",
+
+    "Main_Hello": "Selam",
+    "Main_LocationNote": "Not: Aracınızın Yanından ayrılmadan önce konumunuzu güncellmeyi unutmayınız !",
+    "Main_LocationUpdated": "Araç Konumunuz Güncellendi",
+    "Main_UpdateCarLocation": "Konumu Güncelle",
+    "Main_Longitude": "Boylam",
+    "Main_Latitude": "Enlem",
+    "Main_Calls": "Çağrılar",
+    "Main_ServiceInfo": "Hizmet Bilgileri",
+    "Main_SubscriptionType": "Üyelik Tipi",
+    "Main_ExpireDate": "Kalan Süre",
+    "Main_ExtendService": "Hizmeti Uzat",
+
+    "Tabbar_First": "Arabam Nerede",
+    "Tabbar_Second": "Çağrı Yap",
+    "Tabbar_Third": "Ayarlar",
+
+    "Settings_EditInfo": "Bilgilerimi Düzenle",
+    "Settings_EditPassword": "Şifre Düzenle",
+    "Settings_MyCars": "Araçlarım",
+    "Settings_MyAdress": "Adreslerim",
+    "Settings_PointAndComment": "Puanlar & Yorumlar",
+    "Settings_DoNotDistrub": "Rahatsız Etme",
+    "Settings_Messages": "Mesajlar",
+    "Settings_AutoMessage": "Otomatik Mesajlar",
+    "Settings_LogOut": "Çıkış Yap",
+
+    "Map_GetDirection": "Yol Tarifi Al",
+
+    "EditInformation_EditInformation": "Bilgilerimi Düzenle",
+    "EditInformation_NameSurname": "Ad Soyad",
+    "EditInformation_PhoneNumber": "Telefon Numarası",
+    "EditInformation_Email": "Email Adresi",
+    "EditInformation_IdentityNumber": "Tc Kimlik No",
+
+    "EditPassword_EditPassword": "Şifremi Düzenle",
+    "EditPassword_OldPassword": "Eski Şİfreniz",
+    "EditPassword_NewPassword": "Yeni Şİfreniz",
+    "EditPassword_NewPasswordAgain": "Yeni Şifreniz (Tekrar)",
+
+    "EditCar_EditCarInformation": "Araç Bilgilerini Düzenle",
+    "EditCar_Plate": "Plaka",
+    "EditCar_SobolaId": "Sobola Id",
+
+    "AddAdress_AddAdress": "Adres Ekle",
+    "AddAdress_WaitingLocation": "Konum bilgisine henüz erişilemedi.Bu işlem 30 -45 saniye'yi bulabilir daha uzun sürüyorsa Enlem Boylam değerlerini manuel olarak girmeniz gerekmektedir.",
+    "AddAdress_Locationtaken": " Konum bilginiz başarıyla alındı",
+    "AddAdress_Input_Header": "Başlık",
+    "AddAdress_Input_Latitude": "Enlem",
+    "AddAdress_Input_Longitude": "Boylam",
+    "AddAdress_Input_Adress": "Adres",
+
+    "EditAdress_EditAdress": "Adresi Düzenle",
+
+    "AdressListItem_Edit": "Düzenle",
+    "AdressListItem_Delete": "Sil",
+    "AdressListItem_Directions": "Yol Tarifi",
+
+    "Adress_AddAdress": "Adres Ekle",
+
+    "NoNotification_1Hour": "1 Saatliğine rahatsız edilmek istemiyorum",
+    "NoNotification_GoodPlace": "Aracımı Uygun yere park etttiğim için rahatsız etme",
+    "NoNotification_PleaseTrueHour": "Lütfen 0 ile 24 arasında saat değeri giriniz",
+    "NoNotification_PleaseTrueMinute": "Lütfen 0 ile 59 arasında dakika değeri giriniz",
+    "NoNotification_NoDistrubTime": "Rahatsız edilmemek istediğiniz saat aralığını giriniz",
+    "NoNotification_PleaseFixError": "Kaydetmek için hataları gideriniz"
+  },
+  "en": {
+    "Main_Hello": "Hello",
+    "Tabbar_First": "Where is My Car",
+    "Tabbar_Second": "Make Call",
+    "Tabbar_Third": "Settings"
+  }
+}

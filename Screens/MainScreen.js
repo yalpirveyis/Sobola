@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   View,
@@ -22,9 +22,44 @@ import Header from "../assets/components/Header";
 import { TextMedium, TextBold, TextLight } from "../assets/components/Text";
 import { Center } from "../assets/components/Center";
 import { Story } from "../assets/components/Story";
-import { Constants, Colors, ContentTr } from "../assets/components/Constants";
+
+import { Constants, Colors } from "../assets/components/Constants";
+
+import * as Location from "expo-location";
+
+import * as Localization from "expo-localization";
+import * as Content from "../assets/components/Content.json";
+var LanguageSlice = Localization.locale.slice(0, 2);
 
 export default function MainScreen({ navigation }) {
+  const [Longitude, setLongitude] = useState(0);
+  const [Latitude, setLatitude] = useState(0);
+  const [MapLongitude, setMapLongitude] = useState(0);
+  const [MapLatitude, setMapLatitude] = useState(0);
+
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [LocationUpdated, setLocationUpdated] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+      setLatitude(Number(JSON.stringify(location.coords.latitude)));
+      setLongitude(Number(JSON.stringify(location.coords.longitude)));
+    })();
+  }, []);
+
+  let text = "";
+  if (errorMsg) {
+    text = errorMsg;
+  }
   const scrollY = new Animated.Value(0);
   const diffClamp = Animated.diffClamp(scrollY, 0, 5);
   const translateY = diffClamp.interpolate({
@@ -33,7 +68,6 @@ export default function MainScreen({ navigation }) {
   });
 
   const [map, setMap] = useState(0);
-
   const callsData = [
     {
       date: "04.10.2021",
@@ -130,7 +164,7 @@ export default function MainScreen({ navigation }) {
         >
           <View style={{ width: Constants.HalfWidthComponent }}>
             <TextMedium Color={Colors.Yellow} FontSize={13}>
-              {ContentTr.Hello}
+              {Content[LanguageSlice]?.Main_Hello}
             </TextMedium>
 
             <TextBold Color={Colors.Purple} FontSize={32}>
@@ -188,17 +222,17 @@ export default function MainScreen({ navigation }) {
                 >
                   <MapView
                     style={styles.mapStyle}
-                    initialRegion={{
-                      latitude: 39.9166,
-                      longitude: 32.8617,
+                    region={{
+                      latitude: MapLatitude,
+                      longitude: MapLongitude,
                       latitudeDelta: 0.001,
                       longitudeDelta: 0.001,
                     }}
                   >
                     <MapView.Marker
                       coordinate={{
-                        latitude: 39.9166,
-                        longitude: 32.8617,
+                        latitude: Latitude,
+                        longitude: Longitude,
                       }}
                       onPress={() => {}}
                     >
@@ -206,13 +240,16 @@ export default function MainScreen({ navigation }) {
                         style={{
                           justifyContent: "center",
                           alignItems: "center",
+
+                          width: 26,
+                          height: 30,
                         }}
                       >
                         <Image
                           source={require("../assets/icons/pin.png")}
                           style={{
-                            width: 14 * 1.8,
-                            height: 17.9 * 1.8,
+                            width: "100%",
+                            height: "100%",
                           }}
                         />
                       </View>
@@ -312,15 +349,92 @@ export default function MainScreen({ navigation }) {
             alignItems: "center",
           }}
         >
+          {LocationUpdated == false ? (
+            <View
+              style={{
+                flexDirection: "row",
+                marginTop: 40,
+                width: Constants.FullWidthComponent - 50,
+                justifyContent: "center",
+              }}
+            >
+              <TextLight Color={Colors.Red} FontSize={12} TextAlignCenter>
+                {Content[LanguageSlice]?.Main_LocationNote}
+              </TextLight>
+            </View>
+          ) : (
+            <View
+              style={{
+                flexDirection: "row",
+                marginTop: 40,
+                width: Constants.FullWidthComponent - 50,
+                justifyContent: "center",
+              }}
+            >
+              <TextLight Color={Colors.Green} FontSize={12} TextAlignCenter>
+                {Content[LanguageSlice]?.Main_LocationUpdated}
+              </TextLight>
+            </View>
+          )}
+          {Longitude == 0 || Latitude == 0 ? (
+            <View
+              style={{
+                marginTop: 15,
+                paddingVertical: 10,
+                backgroundColor: Colors.Gray,
+                width: Constants.FullWidthComponent - 50,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 40,
+              }}
+            >
+              <TextBold Color={Colors.White} FontSize={24}>
+                {Content[LanguageSlice]?.Main_UpdateCarLocation}
+              </TextBold>
+            </View>
+          ) : (
+            <TouchableOpacity
+              style={{
+                marginTop: 15,
+                paddingVertical: 10,
+                backgroundColor: Colors.Yellow,
+                width: Constants.FullWidthComponent - 50,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 40,
+              }}
+              onPress={() => {
+                setLocationUpdated(true);
+                setMapLongitude(Longitude);
+                setMapLatitude(Latitude);
+              }}
+            >
+              <TextBold Color={Colors.White} FontSize={24}>
+                {Content[LanguageSlice]?.Main_UpdateCarLocation}
+              </TextBold>
+            </TouchableOpacity>
+          )}
+
+          {Longitude != 0 && Latitude != 0 && (
+            <View style={{ flexDirection: "row", marginTop: 15 }}>
+              <TextLight Color={Colors.Gray} FontSize={10}>
+                {Content[LanguageSlice]?.Main_Longitude} :{Longitude}
+              </TextLight>
+              <View style={{ width: 20 }} />
+              <TextLight Color={Colors.Gray} FontSize={10}>
+                {Content[LanguageSlice]?.Main_Latitude} :{Latitude}
+              </TextLight>
+            </View>
+          )}
           <View
             style={{
               alignSelf: "center",
               marginBottom: 30,
-              marginTop: 30,
+              marginTop: 15,
             }}
           >
             <TextBold Color={Colors.Purple} FontSize={24}>
-              {ContentTr.CallsHeaders}
+              {Content[LanguageSlice]?.Main_Calls}
             </TextBold>
           </View>
           <View
@@ -351,7 +465,7 @@ export default function MainScreen({ navigation }) {
                 />
               </TouchableOpacity>
             )}
-            <View
+            <TouchableOpacity
               style={{
                 borderWidth: 1,
                 borderRadius: 20,
@@ -363,6 +477,7 @@ export default function MainScreen({ navigation }) {
                 position: "relative",
                 overflow: "hidden",
               }}
+              onPress={() => navigation.navigate("IncomingCall")}
             >
               <Image
                 source={require("../assets/icons/call.png")}
@@ -408,7 +523,7 @@ export default function MainScreen({ navigation }) {
                   right: 0,
                 }}
               />
-            </View>
+            </TouchableOpacity>
             {calls < callsData.length - 1 ? (
               <TouchableOpacity onPress={() => setCalls(calls + 1)}>
                 <Image
@@ -439,7 +554,7 @@ export default function MainScreen({ navigation }) {
           }}
         >
           <TextBold Color={Colors.Purple} FontSize={24}>
-            {ContentTr.ServiceInformationsHeader}
+            {Content[LanguageSlice]?.Main_ServiceInfo}
           </TextBold>
         </View>
 
@@ -452,7 +567,7 @@ export default function MainScreen({ navigation }) {
           }}
         >
           <TextLight Color={Colors.Gray} FontSize={14}>
-            {ContentTr.MembershipType} :{" "}
+            {Content[LanguageSlice]?.Main_SubscriptionType} :{" "}
           </TextLight>
           <TextBold Color={Colors.Purple} FontSize={14}>
             Aylık
@@ -468,7 +583,7 @@ export default function MainScreen({ navigation }) {
           }}
         >
           <TextLight Color={Colors.Gray} FontSize={14}>
-            {ContentTr.RemainingDays} :{" "}
+            {Content[LanguageSlice]?.Main_ExpireDate} :{" "}
           </TextLight>
           <TextBold Color={Colors.Purple} FontSize={14}>
             21 Gün
@@ -494,7 +609,7 @@ export default function MainScreen({ navigation }) {
             }}
           >
             <TextMedium Color={Colors.White} FontSize={18}>
-              {ContentTr.ExtendServiceButtonHeader}
+              {Content[LanguageSlice]?.Main_ExtendService}
             </TextMedium>
           </View>
           <Image

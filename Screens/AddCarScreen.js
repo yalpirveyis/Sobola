@@ -7,23 +7,13 @@ import {
   TextInput,
 } from "react-native";
 import Header from "../assets/components/Header";
-import { TextMedium } from "../assets/components/Text";
-import { Colors } from "../assets/components/Constants";
-
-import * as Localization from "expo-localization";
-import * as Content from "../assets/components/Content.json";
-var LanguageSlice = Localization.locale.slice(0, 2);
-export default function EditInformationScreen({ route }) {
+export default function AddCarScreen() {
   return (
     <View style={styles.container}>
       <Header back={true} />
 
       <View style={styles.modalView}>
-        <View style={{ margin: 30 }}>
-          <TextMedium Color={Colors.Black} FontSize={14}>
-            {Content[LanguageSlice]?.EditInformation_EditInformation}
-          </TextMedium>
-        </View>
+        <Text style={{ margin: 30, color: "#1A1A1A" }}>Yeni Araç Ekle</Text>
 
         <TextInput
           style={{
@@ -34,7 +24,7 @@ export default function EditInformationScreen({ route }) {
             height: 44,
             paddingHorizontal: 10,
           }}
-          placeholder={Content[LanguageSlice]?.EditInformation_NameSurname}
+          placeholder="Plaka"
         ></TextInput>
         <TextInput
           style={{
@@ -46,32 +36,9 @@ export default function EditInformationScreen({ route }) {
             paddingHorizontal: 10,
             marginTop: 20,
           }}
-          placeholder={Content[LanguageSlice]?.EditInformation_PhoneNumber}
+          placeholder="Sobola Id"
         ></TextInput>
-        <TextInput
-          style={{
-            borderWidth: 1,
-            borderRadius: 10,
-            borderColor: "#DEDEDE",
-            width: 250,
-            height: 44,
-            paddingHorizontal: 10,
-            marginTop: 20,
-          }}
-          placeholder={Content[LanguageSlice]?.EditInformation_Email}
-        ></TextInput>
-        <TextInput
-          style={{
-            borderWidth: 1,
-            borderRadius: 10,
-            borderColor: "#DEDEDE",
-            width: 250,
-            height: 44,
-            paddingHorizontal: 10,
-            marginTop: 20,
-          }}
-          placeholder={Content[LanguageSlice]?.EditInformation_IdentityNumber}
-        ></TextInput>
+
         <TouchableOpacity
           style={{
             width: 250,
@@ -85,7 +52,7 @@ export default function EditInformationScreen({ route }) {
           onPress={() => {}}
         >
           <Text style={{ fontSize: 18, color: "white", fontWeight: "bold" }}>
-            {Content[LanguageSlice]?.Save}
+            Kaydet
           </Text>
         </TouchableOpacity>
       </View>
@@ -106,7 +73,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 20,
+    padding: 25,
     alignItems: "center",
 
     shadowColor: "#000",

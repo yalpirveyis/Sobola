@@ -16,21 +16,21 @@ function CarsListItem(props) {
         flexDirection: "row",
         alignItems: "center",
         paddingHorizontal: 15,
-        borderBottomColor: Colors.Black,
+        borderBottomColor: Colors.Gray,
         borderBottomWidth: 0.3,
-        borderBottomEndRadius: 15,
-        borderBottomStartRadius: 15,
+        borderBottomEndRadius: 25,
+        borderBottomStartRadius: 20,
       }}
       onPress={props.onPress}
     >
-      <View style={{ marginLeft: 20 }}>
+      <View style={{ marginLeft: 10 }}>
         <TextMedium>{props.Text}</TextMedium>
       </View>
       <Image
         source={require("../icons/arrowRight.png")}
         style={{
-          width: 30,
-          height: 30,
+          width: 20,
+          height: 20,
         }}
       />
     </TouchableOpacity>

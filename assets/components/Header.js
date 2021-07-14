@@ -58,7 +58,10 @@ export default function Header(props) {
           alignSelf: "center",
         }}
       />
-      <TouchableOpacity style={{ alignSelf: "center" }}>
+      <TouchableOpacity
+        style={{ alignSelf: "center" }}
+        onPress={() => navigation.navigate("Settings")}
+      >
         <Image
           source={require("../icons/menuSetting.png")}
           style={{

@@ -5,13 +5,12 @@ import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { TextBold } from "./assets/components/Text";
-import { Constants, Colors } from "./assets/components/Constants";
+import { Constants, Colors, ContentTr } from "./assets/components/Constants";
 
 import StepperScreen from "./Screens/StepperScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import MembershipScreen from "./Screens/MembershipScreen";
 import MainScreen from "./Screens/MainScreen";
-import Test from "./Screens/Test";
 import MapScreen from "./Screens/MapScreen";
 import QrScreen from "./Screens/QrScreen";
 import MakeCallScreen from "./Screens/MakeCallScreen";
@@ -22,14 +21,32 @@ import Tabbar from "./assets/components/Tabbar";
 import EditInformationScreen from "./Screens/EditInformationScreen";
 import EditPasswordScreen from "./Screens/EditPasswordScreen";
 import EditCarScreen from "./Screens/EditCarScreen";
+import AddCarScreen from "./Screens/AddCarScreen";
 import MyCarsScreen from "./Screens/MyCarsScreen";
+import MessagesScreen from "./Screens/MessagesScreen";
+import AdressScreen from "./Screens/AdressScreen";
+import AddAdressScreen from "./Screens/AddAdressScreen";
+import EditAdressScreen from "./Screens/EditAdressScreen";
+import AutoMessageScreen from "./Screens/AutoMessageScreen";
+import EditAutoMessageScreen from "./Screens/EditAutoMessageScreen";
+import CommentsScreen from "./Screens/CommentsScreen";
+import NoNotificationScreen from "./Screens/NoNotificationScreen";
+import MessageDetailsScreen from "./Screens/MessageDetailsScreen";
+import AddAutoMessageScreen from "./Screens/AddAutoMessageScreen";
+import IncomingCallScreen from "./Screens/IncomingCallScreen";
+import Test from "./Screens/Test";
 
+import * as Localization from "expo-localization";
+import * as Content from "./assets/components/Content.json";
 //var stepperCheck = false;
 var log = false;
+var LanguageSlice = Localization.locale.slice(0, 2);
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Home Screen</Text>
+      <Text>{Content[LanguageSlice]?.Main_Hello}</Text>
+
       <Text>{log == true ? "se" : "as"}</Text>
       <Button title="Go to TEst" onPress={() => navigation.navigate("Test")} />
       <Button
@@ -62,6 +79,13 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Test"
+          component={Test}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
         <Stack.Screen
           name="Stepper"
           component={StepperScreen}
@@ -97,13 +121,7 @@ function App() {
             return { headerShown: false };
           }}
         />
-        <Stack.Screen
-          name="Test"
-          component={Test}
-          options={() => {
-            return { headerShown: false };
-          }}
-        />
+
         <Stack.Screen
           name="Main"
           component={MainScreen}
@@ -163,6 +181,90 @@ function App() {
         <Stack.Screen
           name="EditCar"
           component={EditCarScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="AddCar"
+          component={AddCarScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="Adress"
+          component={AdressScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="AddAdress"
+          component={AddAdressScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="EditAdress"
+          component={EditAdressScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="AutoMessage"
+          component={AutoMessageScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="EditAutoMessage"
+          component={EditAutoMessageScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="AddAutoMessage"
+          component={AddAutoMessageScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="Comments"
+          component={CommentsScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="Messages"
+          component={MessagesScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="MessageDetails"
+          component={MessageDetailsScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="NoNotification"
+          component={NoNotificationScreen}
+          options={() => {
+            return { headerShown: false };
+          }}
+        />
+        <Stack.Screen
+          name="IncomingCall"
+          component={IncomingCallScreen}
           options={() => {
             return { headerShown: false };
           }}

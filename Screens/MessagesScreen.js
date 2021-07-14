@@ -13,44 +13,26 @@ import {
 } from "react-native";
 import Tabbar from "../assets/components/Tabbar";
 import Header from "../assets/components/Header";
-import CarsListItem from "../assets/components/CarsListItem";
+import MessagesListItem from "../assets/components/MessagesListItem";
 
-export default function MyCarsScreen({ navigation }) {
+export default function MessagesScreen({ navigation }) {
   const scrollY = new Animated.Value(0);
   const diffClamp = Animated.diffClamp(scrollY, 0, 45);
   const translateY = diffClamp.interpolate({
     inputRange: [0, 0],
     outputRange: [0, 100],
   });
+
+  const [Message, setMessage] = useState(
+    "Mehtap sokaktaki arabayı çeker misiniz acaba"
+  );
   return (
-    <View
-      style={{
-        flex: 1,
-        paddingTop: 24,
-        backgroundColor: "#FFFFFF",
-        position: "relative",
-      }}
-    >
-      <TouchableOpacity
-        style={{
-          width: 60,
-          height: 60,
-          borderRadius: 30,
-          right: 20,
-          bottom: 70,
-          zIndex: 1,
-          position: "absolute",
-        }}
-        onPress={() => navigation.navigate("AddCar")}
-      >
-        <Image
-          source={require("../assets/icons/add.png")}
-          style={{
-            width: 60,
-            height: 60,
-          }}
-        />
-      </TouchableOpacity>
+    <View style={{ flex: 1, paddingTop: 24, backgroundColor: "#FFFFFF" }}>
+      {/* Header Start */}
+
+      {/* Header Start */}
+      {/* absolute aniamted tab bar*/}
+
       <Animated.View
         style={{
           position: "absolute",
@@ -67,30 +49,42 @@ export default function MyCarsScreen({ navigation }) {
 
       <Header back={true} />
 
+      {/* Header End */}
+      {/*List Start*/}
+      {/*List İtem*/}
       <ScrollView
         style={{ paddingTop: 10 }}
         onScroll={(e) => {
           scrollY.setValue(e.nativeEvent.contentOffset.y);
         }}
       >
-        <CarsListItem
+        <MessagesListItem
           onPress={() => {
-            navigation.navigate("EditCar");
+            navigation.navigate("MessageDetails");
           }}
-          Text="42 CYZ 53"
+          source={require("../assets/userImg/ae.jpg")}
+          Header={"Nasip Elmas "}
+          Time={"2 saat önce"}
+          Message={Message.slice(0, 25) + "..."}
+          Notification={true}
         />
-        <CarsListItem
+        <MessagesListItem
           onPress={() => {
-            navigation.navigate("EditCar");
+            navigation.navigate("MessageDetails");
           }}
-          Text="42 AAA 53"
+          source={require("../assets/userImg/ae1.jpg")}
+          Header={"Aykut Elmas "}
+          Time={"2 saat önce"}
+          Message={Message.slice(0, 25) + "..."}
         />
-
-        <CarsListItem
+        <MessagesListItem
           onPress={() => {
-            navigation.navigate("EditCar");
+            navigation.navigate("MessageDetails");
           }}
-          Text="42 BBB 53"
+          source={require("../assets/userImg/ae2.jpg")}
+          Header={"Kuzum Elmas "}
+          Time={"2 saat önce"}
+          Message={Message.slice(0, 25) + "..."}
         />
 
         {/*List End*/}

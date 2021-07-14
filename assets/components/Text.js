@@ -17,6 +17,7 @@ function TextBold(props) {
               fontFamily: "FiraSans_Bold",
               color: props.Color ? props.Color : Colors.Black,
               fontSize: props.FontSize ? props.FontSize : Constants.FontMedium,
+              textAlign: props.TextAlignCenter ? "center" : "auto",
             }
           : {
               color: props.Color ? props.Color : Colors.Black,
@@ -42,6 +43,7 @@ function TextMedium(props) {
               fontFamily: "FiraSans_Medium",
               color: props.Color ? props.Color : Colors.Black,
               fontSize: props.FontSize ? props.FontSize : Constants.FontMedium,
+              textAlign: props.TextAlignCenter ? "center" : "auto",
             }
           : {
               color: props.Color ? props.Color : Colors.Black,
@@ -67,6 +69,7 @@ function TextSemiBold(props) {
               fontFamily: "FiraSans_SemiBold",
               color: props.Color ? props.Color : Colors.Black,
               fontSize: props.FontSize ? props.FontSize : Constants.FontMedium,
+              textAlign: props.TextAlignCenter ? "center" : "auto",
             }
           : {
               color: props.Color ? props.Color : Colors.Black,
@@ -92,6 +95,7 @@ function TextLight(props) {
               fontFamily: "FiraSans_Light",
               color: props.Color ? props.Color : Colors.Black,
               fontSize: props.FontSize ? props.FontSize : Constants.FontMedium,
+              textAlign: props.TextAlignCenter ? "center" : "auto",
             }
           : {
               color: props.Color ? props.Color : Colors.Black,

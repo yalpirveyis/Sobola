@@ -15,6 +15,10 @@ import { useNavigation } from "@react-navigation/native";
 import { Constants, Colors, ContentTr } from "./Constants";
 import { TextMedium } from "./Text";
 
+import * as Localization from "expo-localization";
+import * as Content from "./Content.json";
+var LanguageSlice = Localization.locale.slice(0, 2);
+
 function Tabbar() {
   const navigation = useNavigation();
 
@@ -24,8 +28,10 @@ function Tabbar() {
         height: Constants.TabbarHeight,
         width: Constants.TabbarWidth,
         flexDirection: "row",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         alignItems: "center",
+        alignSelf: "center",
+        paddingHorizontal: 10,
       }}
     >
       <TouchableOpacity
@@ -40,12 +46,9 @@ function Tabbar() {
             resizeMode: "center",
           }}
         />
-        <View style={{ marginLeft: 10 }}>
+        <View style={{ marginLeft: 10, maxWidth: 60 }}>
           <TextMedium Color={Colors.Black} FontSize={13}>
-            {ContentTr.TabbarFirstButtonFirstRow}
-          </TextMedium>
-          <TextMedium Color={Colors.Black} FontSize={13}>
-            {ContentTr.TabbarFirstButtonSecondRow}
+            {Content[LanguageSlice]?.Tabbar_First}
           </TextMedium>
         </View>
       </TouchableOpacity>
@@ -62,12 +65,9 @@ function Tabbar() {
             resizeMode: "center",
           }}
         />
-        <View style={{ marginLeft: 10 }}>
+        <View style={{ marginLeft: 10, maxWidth: 50 }}>
           <TextMedium Color={Colors.Black} FontSize={13}>
-            {ContentTr.TabbarSecondButtonFirstRow}
-          </TextMedium>
-          <TextMedium Color={Colors.Black} FontSize={13}>
-            {ContentTr.TabbarSecondButtonSecondRow}
+            {Content[LanguageSlice]?.Tabbar_Second}
           </TextMedium>
         </View>
       </TouchableOpacity>
@@ -84,9 +84,9 @@ function Tabbar() {
             resizeMode: "center",
           }}
         />
-        <View style={{ marginLeft: 10 }}>
+        <View style={{ marginLeft: 10, maxWidth: 60 }}>
           <TextMedium Color={Colors.Black} FontSize={13}>
-            {ContentTr.TabbarThirdButtonRow}
+            Settins
           </TextMedium>
         </View>
       </TouchableOpacity>

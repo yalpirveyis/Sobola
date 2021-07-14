@@ -41,11 +41,11 @@ var Constants = {
 
 var Colors = {
   Purple: "#5A55A1",
-  Gray: "#757575",
-  Green: "#47DC56",
+  Gray: "#707070",
+  Green: "#65AF00",
   White: "#FFFFFF",
   Black: "#000000",
-  Red: "#B63333",
+  Red: "#FD3E31",
   Yellow: "#FFA200",
 };
 var ContentTr = {
@@ -70,4 +70,7 @@ var ContentTr = {
   RemainingDays: "Kalan Süre",
   ExtendServiceButtonHeader: "Hizmeti Uzat",
 };
-export { Constants, Colors, ContentTr };
+var ContentEn = {
+  Hello: "Hello",
+};
+export { Constants, Colors, ContentTr, ContentEn };

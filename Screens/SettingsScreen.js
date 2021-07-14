@@ -15,6 +15,10 @@ import Tabbar from "../assets/components/Tabbar";
 import Header from "../assets/components/Header";
 import SettingsListItem from "../assets/components/SettingsListItem";
 
+import * as Localization from "expo-localization";
+import * as Content from "../assets/components/Content.json";
+var LanguageSlice = Localization.locale.slice(0, 2);
+
 export default function SettingsScreen({ navigation }) {
   const scrollY = new Animated.Value(0);
   const diffClamp = Animated.diffClamp(scrollY, 0, 45);
@@ -59,21 +63,63 @@ export default function SettingsScreen({ navigation }) {
             navigation.navigate("EditInformation");
           }}
           source={require("../assets/icons/user.png")}
-          Text="Bilgilerimi Düzenle"
+          Text={Content[LanguageSlice]?.Settings_EditInfo}
         />
         <SettingsListItem
           onPress={() => {
             navigation.navigate("EditPassword");
           }}
           source={require("../assets/icons/password.png")}
-          Text="Şifremi Değiştir"
+          Text={Content[LanguageSlice]?.Settings_EditPassword}
         />
         <SettingsListItem
           onPress={() => {
             navigation.navigate("MyCars");
           }}
           source={require("../assets/icons/steeringWheel.png")}
-          Text="Araçlarım"
+          Text={Content[LanguageSlice]?.Settings_MyCars}
+        />
+        <SettingsListItem
+          onPress={() => {
+            navigation.navigate("Adress");
+          }}
+          source={require("../assets/icons/adress.png")}
+          Text={Content[LanguageSlice]?.Settings_MyAdress}
+        />
+        <SettingsListItem
+          onPress={() => {
+            navigation.navigate("Comments");
+          }}
+          source={require("../assets/icons/message.png")}
+          Text={Content[LanguageSlice]?.Settings_PointAndComment}
+        />
+        <SettingsListItem
+          onPress={() => {
+            navigation.navigate("NoNotification");
+          }}
+          source={require("../assets/icons/sleeping.png")}
+          Text={Content[LanguageSlice]?.Settings_DoNotDistrub}
+        />
+        <SettingsListItem
+          onPress={() => {
+            navigation.navigate("Messages");
+          }}
+          source={require("../assets/icons/email.png")}
+          Text={Content[LanguageSlice]?.Settings_Messages}
+        />
+        <SettingsListItem
+          onPress={() => {
+            navigation.navigate("AutoMessage");
+          }}
+          source={require("../assets/icons/autoReply.png")}
+          Text={Content[LanguageSlice]?.Settings_AutoMessage}
+        />
+        <SettingsListItem
+          onPress={() => {
+            navigation.navigate("Stepper");
+          }}
+          source={require("../assets/icons/logout.png")}
+          Text={Content[LanguageSlice]?.Settings_LogOut}
         />
 
         {/*List End*/}

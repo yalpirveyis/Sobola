@@ -11,6 +11,11 @@ import * as Linking from "expo-linking";
 
 import { TextMedium, TextBold, TextLight } from "../assets/components/Text";
 import { Constants, Colors, ContentTr } from "../assets/components/Constants";
+
+import * as Localization from "expo-localization";
+import * as Content from "../assets/components/Content.json";
+var LanguageSlice = Localization.locale.slice(0, 2);
+
 export default function MapScreen({ route, navigation }) {
   //const [modalVisible, setModalVisible] = useState(false);
 
@@ -164,22 +169,22 @@ export default function MapScreen({ route, navigation }) {
         }}
       >
         <TextMedium Color={Colors.Purple} FontSize={18}>
-          Yol Tarifi Al
+          {Content[LanguageSlice]?.Map_GetDirection}
         </TextMedium>
       </TouchableOpacity>
       <MapView
         style={styles.mapStyle}
         initialRegion={{
-          latitude: 39.9166,
-          longitude: 32.8617,
+          latitude: 37.834024,
+          longitude: 32.4756354,
           latitudeDelta: 0.001,
           longitudeDelta: 0.001,
         }}
       >
         <MapView.Marker
           coordinate={{
-            latitude: 39.9166,
-            longitude: 32.8617,
+            latitude: 37.834024,
+            longitude: 32.4756354,
           }}
           /*
           onPress={() => {
@@ -191,13 +196,16 @@ export default function MapScreen({ route, navigation }) {
             style={{
               justifyContent: "center",
               alignItems: "center",
+
+              width: 26,
+              height: 30,
             }}
           >
             <Image
               source={require("../assets/icons/pin.png")}
               style={{
-                width: 14 * 1.8,
-                height: 17.9 * 1.8,
+                width: "100%",
+                height: "100%",
               }}
             />
           </View>

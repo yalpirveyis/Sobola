@@ -16,14 +16,14 @@ function SettingsListItem(props) {
         flexDirection: "row",
         alignItems: "center",
         paddingHorizontal: 15,
-        borderBottomColor: Colors.Black,
-        borderBottomWidth: 0.3,
+        borderBottomColor: Colors.Gray,
+        borderBottomWidth: 0.25,
         borderBottomEndRadius: 15,
         borderBottomStartRadius: 15,
       }}
       onPress={props.onPress}
     >
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Image
           source={props.source}
           style={{
@@ -38,8 +38,8 @@ function SettingsListItem(props) {
       <Image
         source={require("../icons/arrowRight.png")}
         style={{
-          width: 30,
-          height: 30,
+          width: 20,
+          height: 20,
         }}
       />
     </TouchableOpacity>
